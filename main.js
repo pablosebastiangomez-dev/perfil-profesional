@@ -9,13 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // === LÓGICA PARA DASHBOARD HÍBRIDO DE ACCIONES ===
 async function fetchHybridMoversData() {
     const tableBody = document.querySelector('#movers-final-table tbody');
-    
-    // 👇 Pega aquí la URL de tu servicio web de Render.
-    // Ej: 'https://perfil-profesional-backend.onrender.com'
     const backendUrl = 'https://perfil-profesional-backend.onrender.com'; 
 
     try {
-        // Hacemos ambas llamadas a nuestro backend en Render
         const [aiResponse, apiResponse] = await Promise.all([
             fetch(`${backendUrl}/gemini-scraper`),
             fetch(`${backendUrl}/stock-api`)
@@ -24,7 +20,16 @@ async function fetchHybridMoversData() {
         if (!aiResponse.ok) throw new Error('La función de IA falló. (gemini-scraper)');
         if (!apiResponse.ok) throw new Error('La API de datos falló. (stock-api)');
 
-        const companiesFromAI = await aiResponse.json();
+        let companiesFromAI = await aiResponse.json();
+        
+        // --- VALIDACIÓN Y CORRECCIÓN ---
+        // Nos aseguramos de que companiesFromAI sea siempre un array.
+        if (!Array.isArray(companiesFromAI)) {
+            // Si no es un array (quizás es un solo objeto, null, etc.), lo convertimos en uno.
+            // Si es un objeto válido, se convierte en un array con ese objeto. Si es null, se convierte en un array vacío.
+            companiesFromAI = companiesFromAI ? [companiesFromAI] : [];
+        }
+
         const financialsFromAPI = await apiResponse.json();
 
         const financialsMap = new Map(financialsFromAPI.map(stock => [stock.simbolo, stock]));
