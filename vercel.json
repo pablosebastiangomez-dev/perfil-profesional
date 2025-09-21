@@ -1,0 +1,8 @@
+{
+  "builds": [
+    {
+      "use": "@vercel/jekyll",
+      "src": "Gemfile"
+    }
+  ]
+}
