@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="author" content="Pablo Sebastián Gómez">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/img/site.webmanifest">
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#portfolio">Proyectos</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer id="contact">
+    <p>© 2025 - Pablo Sebastián Gómez</p>
+    <p>
+      <a href="mailto:aspablogomez@gmail.com">📧 Email</a> |
+      <a href="https://www.linkedin.com/in/pablo-sebastiangomez" target="_blank">🔗 LinkedIn</a>
+    </p>
+  </footer>
+
+  <script src="/main.js"></script>
+
+</body>
+
+</html>
