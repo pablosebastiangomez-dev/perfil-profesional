@@ -1,4 +1,3 @@
-// main.js - Versión con errores detallados
 document.addEventListener('DOMContentLoaded', () => {
     const cryptoTable = document.querySelector('#crypto-table');
     const moversFinalTable = document.querySelector('#movers-final-table');
@@ -11,17 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
 async function fetchHybridMoversData() {
     const tableBody = document.querySelector('#movers-final-table tbody');
     try {
+        // CORRECCIÓN: Apuntamos a las nuevas URLs de Vercel en la carpeta /api
         const [aiResponse, apiResponse] = await Promise.all([
-            fetch('/.netlify/functions/gemini-scraper'),
-            fetch('/.netlify/functions/fmp-api')
+            fetch('/api/gemini-scraper'),
+            fetch('/api/stock-api')
         ]);
 
-        // Verificamos cada respuesta por separado para dar un error específico
         if (!aiResponse.ok) {
             throw new Error('La función de IA falló. (gemini-scraper)');
         }
         if (!apiResponse.ok) {
-            throw new Error('La API de FMP falló. Revisa la clave de API en Netlify.');
+            throw new Error('La API de datos falló. (stock-api)');
         }
 
         const companiesFromAI = await aiResponse.json();
@@ -38,7 +37,6 @@ async function fetchHybridMoversData() {
 
     } catch (error) {
         console.error("Error al obtener datos híbridos:", error);
-        // Mostramos el error específico en la tabla
         tableBody.innerHTML = `<tr><td colspan="5" class="error">${error.message}</td></tr>`;
     }
 }
@@ -98,5 +96,5 @@ async function fetchCryptoData() {
 }
 
 // === FUNCIONES AUXILIARES ===
-const formatCurrency = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
-const formatMarketCap = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact' }).format(num);
+const formatCurrency = (num) => new Intl.NumberFormat('en-US', { style: 'currency', 'currency': 'USD' }).format(num);
+const formatMarketCap = (num) => new Intl.NumberFormat('en-US', { style: 'currency', 'currency': 'USD', notation: 'compact' }).format(num);
