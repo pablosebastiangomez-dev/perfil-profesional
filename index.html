@@ -1,77 +1,40 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pablo Sebastián Gómez - Portfolio</title>
-  <meta name="description" content="Portfolio profesional de Pablo Sebastián Gómez, Analista de Datos especializado en análisis financiero, criptomonedas y mercados bursátiles.">
-  <meta name="author" content="Pablo Sebastián Gómez">
+---
+layout: default
+---
+
+<section id="hero" class="hero">
+  <h1>Pablo Sebastián Gómez</h1>
+  <h2>Analista de Datos</h2>
+  <p>Transformo datos en decisiones estratégicas. Experiencia en análisis financiero, criptomonedas y mercados bursátiles.</p>
+</section>
+
+<section id="portfolio">
+  <h3>Proyectos de Datos</h3>
+  <p>Explorá mis dashboards interactivos en diferentes áreas de análisis:</p>
   
-  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-  <link rel="manifest" href="img/site.webmanifest">
-
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="navbar">
-    <nav>
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#portfolio">Proyectos</a></li>
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="hero" class="hero">
-    <h1>Pablo Sebastián Gómez</h1>
-    <h2>Analista de Datos</h2>
-    <p>Transformo datos en decisiones estratégicas. Experiencia en análisis financiero, criptomonedas y mercados bursátiles.</p>
-  </section>
-
-  <section id="portfolio">
-    <h3>Proyectos de Datos</h3>
-    <p>Explorá mis dashboards interactivos en diferentes áreas de análisis:</p>
-    
-    <div class="dashboards-grid">
-      <div class="dashboard-card">
-        <h4>Dashboard de Criptomonedas</h4>
-        <p>Seguimiento en tiempo real de las principales criptomonedas, ordenadas por capitalización de mercado.</p>
-        <div class="dashboard-container">
-          <iframe src="dashboard-crypto.html" class="dashboard-iframe"></iframe>
-        </div>
-      </div>
-      
-      <div class="dashboard-card">
-        <h4>Principales Movimientos del Mercado</h4>
-        <p>Dashboard híbrido: La IA identifica las 5 acciones ganadoras y una API trae los datos financieros en tiempo real.</p>
-        <div class="dashboard-container">
-          <iframe src="dashboard-movers-final.html" class="dashboard-iframe"></iframe>
-        </div>
+  <div class="dashboards-grid">
+    <div class="dashboard-card">
+      <h4>Dashboard de Criptomonedas</h4>
+      <p>Seguimiento en tiempo real de las principales criptomonedas...</p>
+      <div class="dashboard-container">
+        <iframe src="/dashboard-crypto.html" class="dashboard-iframe"></iframe>
       </div>
     </div>
-  </section>
+    <div class="dashboard-card">
+      <h4>Principales Movimientos del Mercado</h4>
+      <p>Dashboard híbrido: La IA identifica las 5 acciones ganadoras y una API trae los datos financieros en tiempo real.</p>
+      <div class="dashboard-container">
+        <iframe src="/dashboard-movers-final.html" class="dashboard-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="about">
-      <h3>Sobre Mí</h3>
-      <p>Mi misión es simple: ayudarte a tomar decisiones financieras inteligentes para que tu dinero trabaje por ti.</p>
-      <p>Mi experiencia como Gerente de Sistemas en una tarjeta de crédito no solo me dio un profundo conocimiento en análisis de datos y gestión de riesgos, sino que también me enseñó a crear soluciones que se adaptan a las necesidades reales de las personas.</p>
-      <p>No necesitas ser un experto en finanzas para invertir con éxito. Me especializo en guiar a quienes buscan multiplicar sus ingresos y construir un futuro sólido con seguridad y confianza. Mi enfoque combina la educación financiera con un análisis de mercado exhaustivo para crear estrategias personalizadas que se alineen con tus metas y tu momento de vida.</p>
-      <p>En cada asesoría, te ofrezco claridad, confianza y resultados medibles. Mi trabajo no se basa en fórmulas mágicas, sino en un asesoramiento honesto y herramientas concretas para que tomes el control de tus finanzas e inversiones.</p>
-      <p class="highlight-text">Este puede ser un buen momento para que empieces...</p>
-  </section>
-
-  <footer id="contact">
-    <p>© 2025 - Pablo Sebastián Gómez</p>
-    <p>
-      <a href="mailto:aspablogomez@gmail.com">📧 Email</a> |
-      <a href="https://www.linkedin.com/in/pablo-sebastiangomez" target="_blank">🔗 LinkedIn</a>
-    </p>
-  </footer>
-
-  <script src="main.js"></script>
-</body>
-</html>
+<section id="about">
+    <h3>Sobre Mí</h3>
+    <p>Mi misión es simple: ayudarte a tomar decisiones financieras inteligentes para que tu dinero trabaje por ti.</p>
+    <p>Mi experiencia como Gerente de Sistemas en una tarjeta de crédito no solo me dio un profundo conocimiento en análisis de datos y gestión de riesgos, sino que también me enseñó a crear soluciones que se adaptan a las necesidades reales de las personas.</p>
+    <p>No necesitas ser un experto en finanzas para invertir con éxito. Me especializo en guiar a quienes buscan multiplicar sus ingresos y construir un futuro sólido con seguridad y confianza. Mi enfoque combina la educación financiera con un análisis de mercado exhaustivo para crear estrategias personalizadas que se alineen con tus metas y tu momento de vida.</p>
+    <p>En cada asesoría, te ofrezco claridad, confianza y resultados medibles. Mi trabajo no se basa en fórmulas mágicas, sino en un asesoramiento honesto y herramientas concretas para que tomes el control de tus finanzas e inversiones.</p>
+    <p class="highlight-text">Este puede ser un buen momento para que empieces...</p>
+</section>
