@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "installCommand": "bundle install",
   "builds": [
     {
       "use": "@vercel/node",
@@ -8,16 +9,6 @@
     {
       "use": "@vercel/jekyll",
       "src": "Gemfile"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     }
   ]
 }
