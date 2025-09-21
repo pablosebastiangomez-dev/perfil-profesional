@@ -1,5 +1,10 @@
 {
+  "version": 2,
   "builds": [
+    {
+      "use": "@vercel/node",
+      "src": "api/**/*.js"
+    },
     {
       "use": "@vercel/jekyll",
       "src": "Gemfile"
