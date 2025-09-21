@@ -9,19 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
 // === LÓGICA PARA DASHBOARD HÍBRIDO DE ACCIONES ===
 async function fetchHybridMoversData() {
     const tableBody = document.querySelector('#movers-final-table tbody');
+    
+    // 👇 Pega aquí la URL de tu servicio web de Render.
+    // Ej: 'https://perfil-profesional-backend.onrender.com'
+    const backendUrl = 'https://perfil-profesional-backend.onrender.com'; 
+
     try {
-        // CORRECCIÓN: Apuntamos a las nuevas URLs de Vercel en la carpeta /api
+        // Hacemos ambas llamadas a nuestro backend en Render
         const [aiResponse, apiResponse] = await Promise.all([
-            fetch('/api/gemini-scraper'),
-            fetch('/api/stock-api')
+            fetch(`${backendUrl}/gemini-scraper`),
+            fetch(`${backendUrl}/stock-api`)
         ]);
 
-        if (!aiResponse.ok) {
-            throw new Error('La función de IA falló. (gemini-scraper)');
-        }
-        if (!apiResponse.ok) {
-            throw new Error('La API de datos falló. (stock-api)');
-        }
+        if (!aiResponse.ok) throw new Error('La función de IA falló. (gemini-scraper)');
+        if (!apiResponse.ok) throw new Error('La API de datos falló. (stock-api)');
 
         const companiesFromAI = await aiResponse.json();
         const financialsFromAPI = await apiResponse.json();
@@ -64,7 +65,7 @@ function displayHybridMovers(data) {
 }
 
 
-// === LÓGICA PARA DASHBOARD DE CRIPTOMONEDAS (sin cambios) ===
+// === LÓGICA PARA DASHBOARD DE CRIPTOMONEDAS ===
 async function fetchCryptoData() {
     const cryptoTableBody = document.querySelector('#crypto-table tbody');
     const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false';
@@ -96,6 +97,5 @@ async function fetchCryptoData() {
 }
 
 // === FUNCIONES AUXILIARES ===
-const formatCurrency = (num) => new Intl.NumberFormat('en-US', { style: 'currency', 'currency': 'USD' }).format(num);
-const formatMarketCap = (num) => new Intl.NumberFormat('en-US', { style: 'currency', 'currency': 'USD', notation: 'compact' }).format(num);
-
+const formatCurrency = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
+const formatMarketCap = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact' }).format(num);
