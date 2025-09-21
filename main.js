@@ -98,3 +98,4 @@ async function fetchCryptoData() {
 // === FUNCIONES AUXILIARES ===
 const formatCurrency = (num) => new Intl.NumberFormat('en-US', { style: 'currency', 'currency': 'USD' }).format(num);
 const formatMarketCap = (num) => new Intl.NumberFormat('en-US', { style: 'currency', 'currency': 'USD', notation: 'compact' }).format(num);
+
